@@ -1,10 +1,10 @@
-import express from "express";
+import express from "express"
+import { PrismaClient } from "@prisma/client"
 
-const app = express();
-const PORT = 5000;
+const app = express()
+const PORT = 5000
 
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 app.use(express.json());
 
@@ -22,5 +22,5 @@ app.get('/users', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`listening on port ${PORT}`)
 })
