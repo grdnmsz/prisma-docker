@@ -9,4 +9,6 @@
 <img src="https://img.shields.io/github/repo-size/grdnmsz/prisma-docker" alt="repo-size-badge">
 </p>
 
+Template project to bootstrap a back-end application with nodejs (express), postgresql and prisma within a docker container.
+
 This code is a follow up to my article available here : https://gordonmes.dev/docker-prisma
