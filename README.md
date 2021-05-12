@@ -19,7 +19,7 @@ This code is a follow up to my article available here : https://gordonmes.dev/do
 git clone https://github.com/grdnmsz/prisma-docker.git
 ```
 
-- Build, fetch and run docker images
+- Build, fetch and run docker containers
 ```
 docker-compose up -d
 ```
