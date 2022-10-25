@@ -5,6 +5,12 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon --config nodemon.json -L src/server.ts",
+    "build": "yarn migrate:deploy && tsc",
+    "start": "node dist/server.js",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:status": "prisma migrate status",
+    "generate": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
