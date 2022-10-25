@@ -13,5 +13,10 @@ services:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules/
+    tty: true
+    working_dir: /usr/src/app
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"

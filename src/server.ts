@@ -9,7 +9,7 @@ const prisma = new PrismaClient()
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json('hello there')
+  res.json('hello there211ttt2223dd3')
 })
 
 app.get('/users', async (req, res) => {
@@ -20,6 +20,19 @@ app.get('/users', async (req, res) => {
     console.log(err)
   }
 })
+
+app.post("/user", async (req, res) => {
+  const user = await prisma.user.create({
+    data: {
+      id: req.body.id ?? 1,
+      email: req.body.email ?? "Empty todo",
+      name: req.body.name ?? "Empty todo",
+    },
+  });
+
+  return res.json(user);
+});
+
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
