@@ -4,19 +4,27 @@ services:
   db:
     image: "postgres"
     ports:
-      - "2345:5432"
+      - "5432:5432"
+    volumes:
+      - db-volume:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: "postgres"
+      #POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "mydb"
-  server:
-    build: .
+      #POSTGRES_DB: "mydb"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile1
     ports:
       - "5000:5000"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules/
+    depends_on:
+      - db
     tty: true
     working_dir: /usr/src/app
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"
+volumes:
+  db-volume:
